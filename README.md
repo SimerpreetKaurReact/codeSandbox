@@ -17,3 +17,7 @@ Caching layer: have we already fetched the file before, if so return it immediat
 since we are storing a lot of info so, local storage with its minimal storage will not be a goood option
 instead we will use indexedDB inside the browser
 we will use localforage
+
+# configuring css loaders / and others
+
+CSS loader require write to spit out the css file, so to override this behavior by creates js which we will directly append this css into dom hed
