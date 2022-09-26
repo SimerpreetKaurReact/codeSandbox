@@ -65,3 +65,11 @@ Error Handling
 Action creators
 
 - updateCell, deleteCell, insert cellbefore/after, movecell,fetchcell
+
+# slectors: avoid async code
+
+after rendering code cell
+if the code is unchanged for debouncing time, we will dispatch the bundle action ie BUNDLE_START
+once bundling is completed we will dipatch BUNDLE_COMPLETE which we will have all the code coming out of the bundle
+or any errors
+based on this update the data and the result back to the codecell component
