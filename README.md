@@ -78,3 +78,24 @@ based on this update the data and the result back to the codecell component
 
 communication between different code cell, ie variables, functions declared in one can be reused in another
 Adding joining step: which takes the incoming code and join it with all previous code cells
+
+# Data persistence
+
+# user side app running
+
+- npx codeSandbox server
+- launches CLI
+- a local node server runs
+  - direct user to localhost:4005
+  - write any changes in any celll to a file on users machine
+  - load up a list of cells from a file
+
+1. CLI : needs to know how to start up the local API - needs to know how to publish a notebook to the Public API
+2. Local Express API: needs to serve up the react app - needs to be able to save/load cells from a file
+3. Public Express API: needs to serve up the react app - needs to be ablt to save/load cells from a DB - needs to handle auth/permissions etc
+4. React App: needs to make its production assets available to either the local API or the public API
+
+We are going to develop +deploy each of these as seperate NPM packages
+Each project can specify another as dependency
+
+Lerna: tool for managing multi package project
