@@ -99,3 +99,11 @@ We are going to develop +deploy each of these as seperate NPM packages
 Each project can specify another as dependency
 
 Lerna: tool for managing multi package project
+
+# configuring the CLI
+
+commands
+
+- serve.ts: Describe what to do when a user runs the 'serve' command
+- publish.ts: Describes what to when a user runs the 'publish' command
+- login.ts: Describes what to do when a user runs the 'login' command
