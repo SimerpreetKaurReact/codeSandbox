@@ -73,3 +73,8 @@ if the code is unchanged for debouncing time, we will dispatch the bundle action
 once bundling is completed we will dipatch BUNDLE_COMPLETE which we will have all the code coming out of the bundle
 or any errors
 based on this update the data and the result back to the codecell component
+
+# cumulative code execution
+
+communication between different code cell, ie variables, functions declared in one can be reused in another
+Adding joining step: which takes the incoming code and join it with all previous code cells

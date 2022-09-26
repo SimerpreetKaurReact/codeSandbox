@@ -6,6 +6,7 @@ import Resizable from "./resizable";
 import { Cell } from "../state";
 import { useActions } from "../hooks/use-actions";
 import { useTypedSelector } from "../hooks/use-typed-selector";
+import useCumulativeCode from "../hooks/use-cumulative-code";
 interface CodeCellProps {
     cell: Cell
 }
@@ -13,10 +14,10 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
 
     const { updateCell, createBundle } = useActions()
     const bundle = useTypedSelector(state => state.bundle[cell.id])
-
+    const cumulativeCode = useCumulativeCode(cell.id)
     useEffect(() => {
         if (!bundle) {
-            createBundle(cell.id, cell.content)
+            createBundle(cell.id, cumulativeCode)
             return
         }
         let timer: any
@@ -24,7 +25,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
             // ref.current.srcDoc = html
 
             // const result = await ref.current.transform(input, { loader: "jsx", target: "es2015" })
-            createBundle(cell.id, cell.content)
+            createBundle(cell.id, cumulativeCode)
 
         }, 1000);
 
@@ -34,7 +35,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
 
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [cell.content, cell.id, createBundle])
+    }, [cell.content, cell.id, createBundle, cumulativeCode])
 
 
     // const html = `<script>${code}</script>`
